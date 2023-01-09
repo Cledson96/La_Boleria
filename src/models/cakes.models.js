@@ -1,11 +1,11 @@
 import joi from "joi"
 
 
-const signUpSchema = joi.object({
-    name:joi.string().min(3).max(12).required(),
-    email:joi.string().email().required(),
-    password:joi.string().required(),
-    urlPicture:joi.string()
+const cakeschema = joi.object({
+    name:joi.string().min(2).max(20).required(),
+    price:joi.number().min(0,1).required(),
+    description:joi.string(),
+    image:joi.string().required()
 })
 
-export default signUpSchema
+export default cakeschema
