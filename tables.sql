@@ -16,9 +16,9 @@ CREATE TABLE "cakes" (
 
 CREATE TABLE "orders" (
 "id" SERIAL PRIMARY KEY,
-"clientId" INTEGER NOT NULL REFERENCES "clients"("id"),
-"cakeId" INTEGER NOT NULL REFERENCES "cakes"("id"),
+"clientid" INTEGER NOT NULL REFERENCES "clients"("id"),
+"cakeid" INTEGER NOT NULL REFERENCES "cakes"("id"),
 "quantity" INTEGER NOT NULL,
-"createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-"totalPrice" NUMERIC NOT NULL
+"createdAt" TIMESTAMP NOT NULL DEFAULT LOCALTIMESTAMP 'now',
+"totalprice" NUMERIC NOT NULL
 );
