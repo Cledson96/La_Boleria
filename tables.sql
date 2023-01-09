@@ -19,6 +19,6 @@ CREATE TABLE "orders" (
 "clientId" INTEGER NOT NULL REFERENCES "clients"("id"),
 "cakeId" INTEGER NOT NULL REFERENCES "cakes"("id"),
 "quantity" INTEGER NOT NULL,
-"createdAt" TIMESTAMP NOT NULL,
+"createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
 "totalPrice" NUMERIC NOT NULL
 );
