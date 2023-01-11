@@ -5,6 +5,7 @@ import cakes from "./src/routes/cakes.route.js"
 import clients from "./src/routes/clients.route.js"
 import order from "./src/routes/order.route.js"
 import get_orders from "./src/routes/get_orders.route.js"
+import get_orders_id from "./src/routes/get_orders_id.route.js"
 
 //config
 const app = express()
@@ -19,6 +20,7 @@ app.use(order);
 
 //get
 app.use(get_orders);
+app.use(get_orders_id);
 
 //connection
 const port = process.env.PORT || 5000;

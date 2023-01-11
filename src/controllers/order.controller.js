@@ -4,6 +4,9 @@ import orderschema from "../models/order.models.js";
 
 export async function order(req, res) {
 
+
+    const date = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
+console.log(date)
     const validation = orderschema.validate(req.body, { abortEarly: false });
 
     if (validation.error) {
@@ -46,7 +49,7 @@ export async function order(req, res) {
 
     try {
 
-        await connection.query("INSERT INTO orders (clientId,cakeId,quantity,totalPrice) VALUES ($1, $2, $3,$4);", [clientId, cakeId, quantity, totalPrice]);
+        await connection.query("INSERT INTO orders (clientId,cakeId,quantity,totalPrice,createdat) VALUES ($1, $2, $3,$4,$5);", [clientId, cakeId, quantity, totalPrice, date]);
         res.sendStatus(201);
     } catch (err) {
         res.status(500).send(err.message);
