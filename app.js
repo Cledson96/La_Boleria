@@ -9,7 +9,6 @@ import get_orders from "./src/routes/get_orders.route.js"
 import get_orders_id from "./src/routes/get_orders_id.route.js"
 import get_orders_client from "./src/routes/get_orders_client.route.js"
 import delivered from "./src/routes/delivered.route.js"
-delivered
 
 //config
 const app = express()
