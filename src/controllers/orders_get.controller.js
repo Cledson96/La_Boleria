@@ -1,5 +1,6 @@
 import { connection } from "../database/db.js";
 import moment from "moment";
+import { cakes } from "./cakes.controller.js";
 
 export async function orders(req, res) {
     const data = req.query.date;
@@ -31,15 +32,16 @@ export async function orders(req, res) {
             let client = await connection.query("SELECT * FROM clients  WHERE ID=$1;", [orders[i].clientid])
             client = client.rows[0]
 
-            let cake = await connection.query("SELECT * FROM cakes  WHERE ID=$1;", [orders[i].cakeid])
+            let cake = await connection.query("SELECT cakes.id,cakes.name,cakes.price,cakes.image,cakes.description,flavours.name AS flavor FROM cakes JOIN flavours ON cakes.flavourid = flavours.id WHERE cakes.id=$1;", [orders[i].cakeid])
             cake = cake.rows[0]
-
+                   
             send.push(
                 {
                     orderId: orders[i].id,
                     createdAt: orders[i].createdat,
                     quantity: orders[i].quantity,
                     totalPrice: orders[i].totalPrice,
+                    isDelivered:orders[i].isdelivered,
                     client,
                     cake
                 }

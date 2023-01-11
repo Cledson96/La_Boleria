@@ -6,7 +6,7 @@ export async function order(req, res) {
 
 
     const date = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
-console.log(date)
+
     const validation = orderschema.validate(req.body, { abortEarly: false });
 
     if (validation.error) {

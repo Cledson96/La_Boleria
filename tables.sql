@@ -10,7 +10,8 @@ CREATE TABLE "cakes" (
 "name" VARCHAR(255) NOT NULL,
 "price" NUMERIC NOT NULL,
 "image" VARCHAR(255) NOT NULL,
-"description" TEXT 
+"description" TEXT,
+"flavourid" INTEGER NOT NULL REFERENCES "flavours"("id")
 );
 
 
@@ -19,6 +20,12 @@ CREATE TABLE "orders" (
 "clientid" INTEGER NOT NULL REFERENCES "clients"("id"),
 "cakeid" INTEGER NOT NULL REFERENCES "cakes"("id"),
 "quantity" INTEGER NOT NULL,
-"createdAt" TIMESTAMP NOT NULL DEFAULT LOCALTIMESTAMP 'now',
-"totalprice" NUMERIC NOT NULL
+"createdat" TIMESTAMP NOT NULL ,
+"totalprice" NUMERIC NOT NULL,
+"isDelivered" BOOLEAN NOT NULL DEFAULT false
+);
+
+CREATE TABLE "flavours" (
+"id" SERIAL PRIMARY KEY,
+"name" VARCHAR(255) NOT NULL
 );
