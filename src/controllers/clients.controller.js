@@ -1,7 +1,6 @@
 import { connection } from "../database/db.js";
 import  clientsschema  from "../models/clients.models.js";
 
-
 export async function clients(req, res) {
 
     const validation = clientsschema.validate(req.body, { abortEarly: false });
@@ -10,7 +9,7 @@ export async function clients(req, res) {
         res.status(400).send(validation.error.message);
         return
     }
-
+    
     const { name, address, phone } = req.body
 
     try {

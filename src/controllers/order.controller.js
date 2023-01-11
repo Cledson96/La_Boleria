@@ -1,9 +1,7 @@
 import { connection } from "../database/db.js";
 import orderschema from "../models/order.models.js";
 
-
 export async function order(req, res) {
-
 
     const date = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
 

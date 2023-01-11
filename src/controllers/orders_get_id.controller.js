@@ -9,7 +9,6 @@ export async function orders(req, res) {
         const { rows } = await connection.query("SELECT * FROM orders WHERE id=$1;", [id])
         orders = rows
 
-
     } catch (err) {
         res.status(500).send(err.messsage);
     }

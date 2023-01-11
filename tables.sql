@@ -22,7 +22,7 @@ CREATE TABLE "orders" (
 "quantity" INTEGER NOT NULL,
 "createdat" TIMESTAMP NOT NULL ,
 "totalprice" NUMERIC NOT NULL,
-"isDelivered" BOOLEAN NOT NULL DEFAULT false
+"isdelivered" BOOLEAN NOT NULL DEFAULT false
 );
 
 CREATE TABLE "flavours" (

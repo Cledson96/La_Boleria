@@ -26,7 +26,6 @@ export async function delivered(req, res) {
         } catch (err) {
             res.status(500).send(err.messsage);
         }
-
         
     } else {
         res.sendStatus(404);

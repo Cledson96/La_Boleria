@@ -1,7 +1,6 @@
 import { connection } from "../database/db.js";
 import  cakeschema  from "../models/cakes.models.js";
 
-
 export async function cakes(req, res) {
 
     const validation = cakeschema.validate(req.body, { abortEarly: false });
@@ -24,7 +23,6 @@ export async function cakes(req, res) {
     } catch (err) {
         res.status(500).send(err.message);
     }
-
 
     try {
    

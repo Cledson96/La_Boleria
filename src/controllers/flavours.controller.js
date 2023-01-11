@@ -1,7 +1,6 @@
 import { connection } from "../database/db.js";
 import  flavoursschema  from "../models/flavours.models.js";
 
-
 export async function flavours(req, res) {
 
     const validation = flavoursschema.validate(req.body, { abortEarly: false });

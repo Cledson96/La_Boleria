@@ -21,7 +21,6 @@ export async function orders(req, res) {
             let cake = await connection.query("SELECT cakes.id,cakes.name,cakes.price,cakes.image,cakes.description,flavours.name AS flavor FROM cakes JOIN flavours ON cakes.flavourid = flavours.id WHERE cakes.id=$1;", [orders[i].cakeid])
             cake = cake.rows[0]
          
-
             send.push(
                 {
                     orderId: orders[i].id,
@@ -38,5 +37,4 @@ export async function orders(req, res) {
     } else {
         res.status(404).send([]);
     }
-
 }
